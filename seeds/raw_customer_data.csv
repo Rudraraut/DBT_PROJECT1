@@ -1,0 +1,6 @@
+customer_id,first_name,last_name,email,phone_number,registration_date
+101,John,Doe,john@example.com,123-456-7890,2023-01-15
+102,Jane,Smith,jane@example.com,987-654-3210,2023-02-20
+103,Alice,Johnson,alice@example.com,555-123-4567,2023-03-25
+104,Bob,Williams,bob@example.com,777-888-9999,2023-04-30
+105,Emily,Brown,emily@example.com,444-555-6666,2023-05-10
