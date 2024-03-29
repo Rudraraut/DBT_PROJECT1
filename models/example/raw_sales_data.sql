@@ -1,5 +1,4 @@
 
-
 -- Create staging model for raw sales data
 SELECT
     order_id,
