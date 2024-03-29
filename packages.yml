@@ -1,0 +1,3 @@
+packages:
+  - package: "https://github.com/Rudraraut/DBT_PROJECT1/tree/Rudraraut-patch-1"
+    version: "1.7.10"
