@@ -1,5 +1,6 @@
--- models/staging/raw_customer_data.sql
 
+    
+{{ ref('raw_customer_data') }}
    
 CREATE OR REPLACE VIEW staging_customer_data AS
 SELECT
