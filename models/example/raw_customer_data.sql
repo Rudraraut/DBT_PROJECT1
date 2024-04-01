@@ -1,6 +1,5 @@
-create or replace transient table DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.raw_customer_data
-as
-select * from (
+create or replace view DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.raw_customer_data
+as (
     select
         customer_id,
         first_name,
