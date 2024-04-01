@@ -1,12 +1,14 @@
-create or replace view DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.raw_customer_data
-as (
+
+
+-- Define staging model for raw_customer_data
+{{ config(
+    materialized='table',
+    unique_key='customer_id'
+) }}
+
+create table {{ ref('stg_raw_customer_data') }} as (
     select
-        customer_id,
-        first_name,
-        last_name,
-        email,
-        phone_number,
-        TO_DATE(registration_date, 'YYYY-MM-DD') AS registration_date
+        *
     from
-        DEMO_DB.TEST_SCHEMA.raw_customer_data
+        {{ source('raw_customer_data', 'raw_customer_data') }}
 );
