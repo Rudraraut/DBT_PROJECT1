@@ -1,4 +1,5 @@
-CREATE OR REPLACE TRANSIENT TABLE DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.staging_raw_sales_data AS
+-- Create or replace view for staging raw sales data
+CREATE OR REPLACE VIEW DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.staging_raw_sales_data AS
 SELECT
     *
 FROM
