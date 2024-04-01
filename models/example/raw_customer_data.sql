@@ -1,14 +1,19 @@
 
 
--- Define staging model for raw_customer_data
+-- Declare dependency on the staging model
 {{ config(
     materialized='table',
-    unique_key='customer_id'
+    depends_on=[ref('stg_raw_customer_data')]
 ) }}
 
-create table {{ ref('stg_raw_customer_data') }} as (
-    select
-        *
-    from
-        {{ source('raw_customer_data', 'raw_customer_data') }}
-);
+-- Create or replace view for raw customer data
+CREATE OR REPLACE VIEW {{ ref('raw_customer_data') }} AS
+SELECT
+    customer_id,
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    registration_date
+FROM
+    {{ ref('stg_raw_customer_data') }};
