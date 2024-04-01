@@ -29,5 +29,5 @@ models:
         description: "Registration date of the customer"
         tests:
           - not_null
-    materialized: Table
+    materialized: view
     
