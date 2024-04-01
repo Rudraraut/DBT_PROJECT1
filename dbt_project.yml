@@ -45,6 +45,6 @@ models:
   schema: TEST_SCHEMA
   table: raw_customer_data
   example:
-  materialized: table
+  materialized: view
   cluster_by: [customer_id]
   unique_key: [customer_id]
