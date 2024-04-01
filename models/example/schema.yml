@@ -2,17 +2,6 @@
 
 version: 2
 
-sources:
-   raw_customer_data:
-    database: DEMO_DB
-    schema: TEST_SCHEMA
-    tables:
-      - name: raw_customer_data
-   raw_sales_data:
-    database: DEMO_DB
-    schema: TEST_SCHEMA
-    tables:
-      - name: raw_sales_data
 
 
 models:
