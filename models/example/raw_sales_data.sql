@@ -1,6 +1,5 @@
 create or replace view DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.raw_sales_data
 as (
-    
     SELECT
         order_id,
         customer_id,
