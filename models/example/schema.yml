@@ -22,14 +22,5 @@ models:
         description: "Registration date of the customer"
         tests:
           - not_null
-    materialized: view
-    sql: |
-      SELECT
-          customer_id,
-          first_name,
-          last_name,
-          email,
-          phone_number,
-          TO_DATE(registration_date, 'YYYY-MM-DD') AS registration_date
-      FROM
-          {{ ref('raw_customer_data') }}
+    materialized: Table
+    
