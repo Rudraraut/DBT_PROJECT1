@@ -7,7 +7,7 @@ sources:
     database: DEMO_DB
     schema: TEST_SCHEMA
     tables:
-      - name: raw_customer_data_table
+      - name: raw_customer_data
    
 
 
