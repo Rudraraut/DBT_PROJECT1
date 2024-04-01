@@ -2,7 +2,7 @@
 
 version: 2
 sources:
-   raw_customer_data:
+   -name:raw_customer_data
     database: DEMO_DB
     schema: TEST_SCHEMA
     tables:
