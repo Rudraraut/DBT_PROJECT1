@@ -1,7 +1,6 @@
 -- Declare dependency on the staging model
 {{ config(
     materialized='table',
-    depends_on=['stg_raw_customer_data']
 ) }}
 
 -- Create or replace view for raw customer data
