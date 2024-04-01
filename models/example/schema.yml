@@ -8,8 +8,7 @@ sources:
     schema: TEST_SCHEMA
     tables:
       - name: raw_customer_data
-      tables:
-        - name: raw_sales_data
+      
    
 
 
