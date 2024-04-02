@@ -38,13 +38,15 @@ clean-targets: # directories to be removed by `dbt clean`
 # dbt_project.yml
 
 models:
-  my_project:
-  DBT_PROJECT1:
-  raw_customer_data:
-  database: DEMO_DB
-  schema: TEST_SCHEMA
-  table: raw_customer_data
-  example:
-  materialized: view
-  cluster_by: [customer_id]
-  unique_key: [customer_id]
+  - name: raw_customer_data
+    columns: []
+    description: 'Description of your raw_customer_data model'
+    database: DEMO_DB
+    schema: TEST_SCHEMA
+    tags: []
+    materialized: view
+    unique_key: []
+    sources:
+      - name: my_source
+        tables:
+          - stg_raw_customer_data
