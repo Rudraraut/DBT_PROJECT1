@@ -1,6 +1,9 @@
 -- tests/test_raw_customer_data_column_nullability.sql
 
 -- Check for NULL values in the customer_id column
+
+   depends_on: {{ ref('raw_customer_data') }}
+
 select count(*)
 from {{ ref('raw_customer_data') }}
 where customer_id is null;
