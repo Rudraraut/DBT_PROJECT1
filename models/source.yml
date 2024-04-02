@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: my_source
+    database: DEMO_DB
+    schema: TEST_SCHEMA
+    tables:
+      - name: raw_customer_data
+      tables:
+      - name: raw_sales_data
+
