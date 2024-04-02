@@ -1,12 +1,18 @@
-CREATE OR REPLACE VIEW DEMO_DB.TEST_SCHEMA_TEST_SCHEMA.raw_sales_data
- AS
+
+
+{{ config(
+    materialized='view',
+    schema='TEST_SCHEMA',
+    alias='raw_sales_data'
+) }}
+
 SELECT
     order_id,
     customer_id,
-    CAST(order_date AS DATE) AS order_date,
+    order_date,
     product_id,
     quantity,
-    CAST(unit_price AS DECIMAL(10,2)) AS unit_price,
-    CAST(total_price AS DECIMAL(10,2)) AS total_price
+    unit_price,
+    total_price
 FROM
-    DEMO_DB.TEST_SCHEMA.raw_sales_data;
+    {{ source('my_source', 'stg_raw_sales_data') }}

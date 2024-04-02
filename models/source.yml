@@ -8,3 +8,15 @@ sources:
       - name: raw_customer_data
       - name: raw_sales_data
 
+
+
+
+
+
+sources:
+  - name: my_source
+    tables:
+      - name: stg_raw_sales_data
+        database: DEMO_DB
+        schema: TEST_SCHEMA
+
