@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw_customer_data
+    tables:
+      - name: raw_customer_data
+        identifier: raw_customer_data
+        
+  - name: raw_sales_data
+    tables:
+      - name: raw_sales_data
+        identifier: raw_sales_data
+        
