@@ -35,17 +35,14 @@ clean-targets: # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
-# dbt_project.yml
+
 
 models:
   - name: raw_customer_data
-    columns: []
-    description: 'Description of your raw_customer_data model'
+    description: Description of your raw_customer_data model
     database: DEMO_DB
     schema: TEST_SCHEMA
-    tags: []
     materialized: view
-    unique_key: []
     sources:
       - name: my_source
         tables:
