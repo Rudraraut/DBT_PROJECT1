@@ -4,7 +4,7 @@
 name: "dbt_project1"
 version: "1.0.0"
 config-version: 2
-
+macro-paths:"macros"
 
 
 # This setting configures which "profile" dbt uses for this project.
@@ -43,7 +43,29 @@ models:
     database: DEMO_DB
     schema: TEST_SCHEMA
     materialized: view
-    sources:
+    columns: 
+      - name: customer_id
+        description: Unique identifier for the customer
+        tests: 
+          - unique
+      - name: first_name
+        description: First name of the customer
+      - name: last_name
+        description: Last name of the customer
+      - name: email
+        description: Email address of the customer
+      - name: phone_number
+        description: Phone number of the customer
+      - name: registration_date
+        description: Date when the customer registered
+        tests: 
+          - not_null
+    tags: 
+      - raw_data
+      - customer
+    unique_key: 
+      - customer_id
+    sources: 
       - name: my_source
         tables:
           - stg_raw_customer_data
