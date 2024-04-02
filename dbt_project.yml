@@ -43,11 +43,10 @@ models:
     database: DEMO_DB
     schema: TEST_SCHEMA
     materialized: view
-    columns: 
+    columns:
       - name: customer_id
         description: Unique identifier for the customer
-        tests: 
-          - unique
+        tests: [unique]
       - name: first_name
         description: First name of the customer
       - name: last_name
@@ -58,14 +57,9 @@ models:
         description: Phone number of the customer
       - name: registration_date
         description: Date when the customer registered
-        tests: 
-          - not_null
-    tags: 
-      - raw_data
-      - customer
-    unique_key: 
-      - customer_id
-    sources: 
+        tests: [not_null]
+    tags: [raw_data, customer]
+    unique_key: [customer_id]
+    sources:
       - name: my_source
-        tables:
-          - stg_raw_customer_data
+        tables: [stg_raw_customer_data]
