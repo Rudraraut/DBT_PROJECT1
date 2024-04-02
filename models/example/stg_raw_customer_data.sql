@@ -1,6 +1,6 @@
--- models/example/stg_raw_customer_data.sql
 
--- Create or replace transient staging table for raw customer data
+
+
 CREATE OR REPLACE TRANSIENT TABLE {{ ref('raw_customer_data') }}_staging AS
 SELECT
     customer_id,
