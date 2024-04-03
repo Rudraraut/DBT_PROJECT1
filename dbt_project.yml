@@ -39,28 +39,27 @@ clean-targets: # directories to be removed by `dbt clean`
 
 models:
   - name: raw_customer_data
-    description: "Description of your raw_customer_data model"
+    description: Description of your raw_customer_data model
     database: DEMO_DB
     schema: TEST_SCHEMA
     materialized: view
     columns:
       - name: customer_id
-        description: "Unique identifier for the customer"
+        description: Unique identifier for the customer
         tests: [unique]
       - name: first_name
-        description: "First name of the customer"
+        description: First name of the customer
       - name: last_name
-        description: "Last name of the customer"
+        description: Last name of the customer
       - name: email
-        description: "Email address of the customer"
+        description: Email address of the customer
       - name: phone_number
-        description: "Phone number of the customer"
+        description: Phone number of the customer
       - name: registration_date
-        description: "Date when the customer registered"
+        description: Date when the customer registered
         tests: [not_null]
     tags: [raw_data, customer]
     unique_key: [customer_id]
     sources:
       - name: my_source
-        tables: 
-          - stg_raw_customer_data
+        tables: [stg_raw_customer_data]
