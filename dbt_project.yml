@@ -9,13 +9,6 @@ config-version: 2
 
 ...
 
-sources:
-  - name: my_source
-    database: DEMO_DB
-    schema: TEST_SCHEMA
-    tables:
-      - name: stg_raw_customer_data
-      - name: stg_raw_sales_data
 
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
@@ -47,7 +40,54 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
-      +materialized: table
+  - name: raw_customer_data
+    description: Description of your raw_customer_data model
+    database: DEMO_DB
+    schema: TEST_SCHEMA
+    materialized: view
+    tags: [raw_data, customer]
+    unique_key: [customer_id]
+    sources:
+      - name: my_source
+        tables: [stg_raw_customer_data]
+    columns:
+      - name: customer_id
+        description: Unique identifier for the customer
+        tests: [unique]
+      - name: first_name
+        description: First name of the customer
+      - name: last_name
+        description: Last name of the customer
+      - name: email
+        description: Email address of the customer
+      - name: phone_number
+        description: Phone number of the customer
+      - name: registration_date
+        description: Date when the customer registered
+        tests: [not_null]
+
+  - name: raw_sales_data
+    description: Description of your raw_sales_data model
+    database: DEMO_DB
+    schema: TEST_SCHEMA
+    materialized: view
+    tags: [raw_data, sales]
+    unique_key: [sales_id]
+    sources:
+      - name: my_source
+        tables: [stg_raw_sales_data]
+    columns:
+      - name: sales_id
+        description: Unique identifier for the sale
+        tests: [unique]
+      - name: customer_id
+        description: Unique identifier for the customer
+      - name: product_id
+        description: Unique identifier for the product
+      - name: quantity
+        description: Quantity of the product sold
+      - name: unit_price
+        description: Price per unit of the product
+      - name: sale_date
+        description: Date when the sale occurred
+        tests: [not_null]
