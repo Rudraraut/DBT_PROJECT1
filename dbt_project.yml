@@ -62,4 +62,5 @@ models:
     unique_key: [customer_id]
     sources:
       - name: my_source
-        tables: stg_raw_customer_data
+        tables: 
+          - stg_raw_customer_data
