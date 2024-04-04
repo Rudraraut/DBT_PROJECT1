@@ -3,7 +3,7 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 name: 'profile'
-profile:'DBT_PROJECT1'
+profile: 'DBT_PROJECT1'
 version: '1.0.0'
 config-version: 2
 # dbt_project.yml
